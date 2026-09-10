@@ -8,6 +8,11 @@ or any MCP client and ask *"What did Aniket do at BrowserStack?"* or *"Has he
 shipped anything with WebRTC?"* — answered from structured, sourced data instead
 of guesswork.
 
+![A live session: has_skill and search_background answered with sourced evidence](docs/session.svg)
+
+*Real output from the server — `has_skill` returns evidence rather than a yes/no,
+and `search_background` cites the project or skill group each match came from.*
+
 It implements all three MCP primitives — **Tools**, **Resources**, and
 **Prompts** — so it works as a complete reference server, not just a tool dump.
 
