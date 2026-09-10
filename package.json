@@ -1,5 +1,5 @@
 {
-  "name": "my-mcp-server",
+  "name": "@jason-bourne-gg/my-mcp-server",
   "version": "1.0.0",
   "description": "MCP server that exposes Aniket Charjan's resume, experience, and projects as tools for AI assistants (Claude, Cursor, etc.).",
   "type": "module",
@@ -34,5 +34,16 @@
   "devDependencies": {
     "@types/node": "^20.11.0",
     "typescript": "^5.6.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jason-bourne-gg/my-mcp-server.git"
+  },
+  "homepage": "https://github.com/jason-bourne-gg/my-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/jason-bourne-gg/my-mcp-server/issues"
   }
 }
