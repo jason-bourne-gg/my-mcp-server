@@ -108,7 +108,14 @@ function hasSkill(skill: string) {
   const fromExperience = experience
     .filter((job) => job.stack.some((s) => s.toLowerCase().includes(q)) || job.highlights.some((h) => h.toLowerCase().includes(q)))
     .map((job) => `${job.role} @ ${job.company}`);
-  const evidence = [...fromSkills, ...fromExperience];
+  // Projects are evidence too. Without this, a skill only ever shipped in a
+  // side project (WebRTC, for instance) reports as "no" despite the code.
+  const fromProjects = projects
+    .filter((pr) => pr.stack.some((s) => s.toLowerCase().includes(q))
+      || pr.tagline.toLowerCase().includes(q)
+      || pr.details.toLowerCase().includes(q))
+    .map((pr) => `Project: ${pr.name}`);
+  const evidence = [...fromSkills, ...fromExperience, ...fromProjects];
   return { skill, has: evidence.length > 0, evidence };
 }
 
