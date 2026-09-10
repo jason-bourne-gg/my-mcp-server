@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Compile TypeScript
+        run: npm run build
+      # Boots the built server on stdio and drives a real MCP handshake. A
+      # type-check cannot catch "starts fine, but the client sees no tools".
+      - name: MCP smoke test
+        run: node scripts/smoke.mjs
