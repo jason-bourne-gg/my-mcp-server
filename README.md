@@ -70,8 +70,9 @@ Restart Claude Desktop, then ask: *"Using the aniket tools, what's his experienc
 
 ### Cursor
 
-Add the same block to `~/.cursor/mcp.json` (or Settings → MCP). Once published to
-npm you can swap the command for `npx -y my-mcp-server`.
+Add the same block to `~/.cursor/mcp.json` (or Settings → MCP). The bare name `my-mcp-server` is already taken on npm by an unrelated package,
+so if this is ever published it will be scoped as `@jason-bourne-gg/my-mcp-server`
+(`npx -y @jason-bourne-gg/my-mcp-server`). Until then, use the local path above.
 
 ## Develop
 
