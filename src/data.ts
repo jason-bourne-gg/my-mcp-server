@@ -64,6 +64,38 @@ export const projects = [
     repo: "https://github.com/jason-bourne-gg/road-clash",
   },
   {
+    name: "Genesis — HighLevel App Builder",
+    tagline: "AI app builder for the HighLevel CRM: describe an app in plain English and Claude writes it.",
+    details:
+      "You connect a HighLevel sub-account and type what you want; Claude writes the files while you watch them appear in an on-screen editor, and the finished app runs in a sandboxed frame against your real contacts and calendars. Files are hand-editable and every generation is version-stepped.",
+    stack: ["Vue 3", "TypeScript", "Firebase", "Cloud Functions", "@anthropic-ai/sdk"],
+    repo: "https://github.com/jason-bourne-gg/genesis-highlevel-app-builder",
+  },
+  {
+    name: "DirectDrop",
+    tagline: "Peer-to-peer file transfer straight between two browsers — no upload, no server, no account.",
+    details:
+      "Pick a file, share the generated link, and the bytes stream directly to whoever opens it over WebRTC, DTLS-encrypted in transit. Trystero handles signalling over public Nostr relays, so there is no backend of our own. Auto-chunked binary with live progress, speed and ETA.",
+    stack: ["TypeScript", "WebRTC", "Trystero", "Vite"],
+    repo: "https://github.com/jason-bourne-gg/DirectDrop",
+  },
+  {
+    name: "Agent Web Clipper",
+    tagline: "Chrome extension that turns any page into clean, LLM-ready Markdown or JSON in one click.",
+    details:
+      "Picks the main content node, strips nav, ads and boilerplate using a readability heuristic (text length minus link density), converts the DOM to Markdown, and attaches metadata plus outbound links. No AI in the loop and no network calls — everything runs locally in the browser.",
+    stack: ["JavaScript", "Chrome Manifest V3"],
+    repo: "https://github.com/jason-bourne-gg/web-clipper-extension",
+  },
+  {
+    name: "Doc Parser RAG Bot",
+    tagline: "Retrieval-augmented Q&A over your own documents.",
+    details:
+      "Uploads are chunked and embedded into PostgreSQL with pgvector; a question is embedded, matched by vector similarity, re-ranked, and answered by Claude from the retrieved passages. Supports PDF, DOCX, TXT and Markdown via LangChain loaders.",
+    stack: ["Node.js", "Express", "PostgreSQL", "pgvector", "LangChain", "Claude"],
+    repo: "https://github.com/jason-bourne-gg/DOC-PARSER-RAG-BOT",
+  },
+  {
     name: "YouTube Streaming & Alert System",
     tagline: "Kafka-based notification pipeline for YouTube playlist analytics.",
     details:
