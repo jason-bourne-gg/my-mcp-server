@@ -76,6 +76,19 @@ try {
   const call = await waitFor(5);
   const text = call.result?.content?.[0]?.text ?? '';
   expect(!call.error && text.length > 0, 'tools/call get_profile returned content');
+  // Regression guard: has_skill once searched only skills + experience, so a
+  // skill shipped purely in a side project (WebRTC) answered "no" — the exact
+  // question the README advertises.
+  send({ jsonrpc: '2.0', id: 6, method: 'tools/call',
+         params: { name: 'has_skill', arguments: { skill: 'WebRTC' } } });
+  const skill = JSON.parse((await waitFor(6)).result?.content?.[0]?.text ?? '{}');
+  expect(skill.has === true && skill.evidence?.length > 0,
+    `has_skill("WebRTC") is answered with evidence (${skill.evidence?.length ?? 0} item(s))`);
+
+  send({ jsonrpc: '2.0', id: 7, method: 'tools/call',
+         params: { name: 'get_projects', arguments: {} } });
+  const projects = JSON.parse((await waitFor(7)).result?.content?.[0]?.text ?? '[]');
+  expect(projects.length >= 5, `get_projects returned ${projects.length} projects`);
 } catch (err) {
   problems.push(err.message);
   console.log(`  FAIL  ${err.message}`);
