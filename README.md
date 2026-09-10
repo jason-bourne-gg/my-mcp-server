@@ -49,6 +49,16 @@ It implements all three MCP primitives — **Tools**, **Resources**, and
 
 ## Use it
 
+No install and no npm account needed — npm can run it straight from this repo:
+
+```bash
+npx -y github:jason-bourne-gg/my-mcp-server
+```
+
+That clones the repo, builds it, and starts the server on stdio.
+
+Or clone it yourself if you want to poke at the source:
+
 ```bash
 git clone https://github.com/jason-bourne-gg/my-mcp-server.git
 cd my-mcp-server
@@ -75,9 +85,20 @@ Restart Claude Desktop, then ask: *"Using the aniket tools, what's his experienc
 
 ### Cursor
 
-Add the same block to `~/.cursor/mcp.json` (or Settings → MCP). The bare name `my-mcp-server` is already taken on npm by an unrelated package,
-so if this is ever published it will be scoped as `@jason-bourne-gg/my-mcp-server`
-(`npx -y @jason-bourne-gg/my-mcp-server`). Until then, use the local path above.
+Add the same block to `~/.cursor/mcp.json` (or Settings → MCP).
+
+To skip the build step entirely, point the client at the repo instead:
+
+```json
+{
+  "mcpServers": {
+    "aniket": {
+      "command": "npx",
+      "args": ["-y", "github:jason-bourne-gg/my-mcp-server"]
+    }
+  }
+}
+```
 
 ## Develop
 
