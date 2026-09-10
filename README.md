@@ -1,5 +1,7 @@
 # my-mcp-server
 
+[![CI](https://github.com/jason-bourne-gg/my-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/jason-bourne-gg/my-mcp-server/actions/workflows/ci.yml)
+
 An [MCP](https://modelcontextprotocol.io) server that exposes **Aniket Charjan's
 resume as a queryable API for AI assistants**. Add it to Claude Desktop, Cursor,
 or any MCP client and ask *"What did Aniket do at BrowserStack?"* or *"Has he
